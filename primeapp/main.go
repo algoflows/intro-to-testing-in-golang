@@ -46,13 +46,13 @@ func checkNumbers(scanner *bufio.Scanner) (string, bool) {
 	scanner.Scan()
 	input := scanner.Text()
 
-	if input == "exit" {
+	if input == "q" {
 		return "Goodbye!", true
 	}
 
 	n, err := strconv.Atoi(input)
 	if err != nil {
-		return "Please enter a number or 'exit'", false
+		return "Please enter a number or 'q' to quit the program", false
 	}
 
 	_, msg := isPrime(n)
@@ -62,11 +62,11 @@ func checkNumbers(scanner *bufio.Scanner) (string, bool) {
 func intro() {
 	fmt.Println("Welcome to the prime number checker!")
 	fmt.Println("Enter a number to see if it is prime.")
-	fmt.Println("Enter 'exit' to quit.")
+	fmt.Println("Enter 'q' to quit.")
 }
 
 func prompt() {
-	fmt.Print("Enter a number: ")
+	fmt.Print("-> ")
 }
 
 func isPrime(n int) (bool, string) {
